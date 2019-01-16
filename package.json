@@ -1,0 +1,22 @@
+{
+  "name": "web-components",
+  "version": "1.0.0",
+  "description": "Simple Web Components",
+  "main": "index.html",
+  "scripts": {
+    "test": "start"
+  },
+  "keywords": [
+    "web-components",
+    "javascript",
+    "es6",
+    "polyfills"
+  ],
+  "author": "santosh viswanatham",
+  "license": "ISC",
+  "dependencies": {
+    "@polymer/lit-element": "^0.6.4",
+    "polymer-cli": "next",
+    "@webcomponents/webcomponentsjs": "latest"
+  }
+}

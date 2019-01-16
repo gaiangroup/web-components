@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lit-element example</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Polyfills only needed for Firefox and Edge. -->
+    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  </head>  
+<body>
+  <my-clock format="hh:mm:ss"></my-clock>
+  
+  <script type="module">
+    import {LitElement, html, customElement, property} from '@polymer/lit-element';
+    
+    class MyClock extends LitElement {
+      static get properties() {
+        return {
+          format: {type: String},
+          displayTime: {type: String},
+          date: {type: Date}
+        }
+      }
+      constructor() {
+        super();
+        this.displayTime = "";
+        this.date = new Date();
+        this.addEventListener('stuff-loaded', (e) => { 
+          this.date = new Date();
+          console.log('stuff-loaded') 
+          } );
+        // let intervalId = setInterval(
+        //   () => {
+        //     console.log('ticking');
+        //     this.tick();
+        //     // await this.updateComplete;
+        //   }, 1000
+        // );
+        this.tick();
+      }
+      tick() {
+        setInterval(() => {
+            let loaded = new CustomEvent('stuff-loaded', {
+              detail: 'Loading complete.'
+            });
+            this.dispatchEvent(loaded);
+            console.log('ticking');            
+          }, 1000);
+        // this.date = new Date();
+        // // await this.updateComplete;
+        // this.dispatchEvent(new CustomEvent('date', {detail: {date: this.date}}))
+      }
+      clickHandler(event) {
+        console.log(event.target);
+        this.myBool = !this.myBool;
+        this.date= new Date();
+      }
+      render() {
+        let hours = this.date.getHours() < 10 ? '0' + this.date.getHours(): this.date.getHours(), 
+        minutes = this.date.getMinutes() < 10 ? '0' + this.date.getMinutes(): this.date.getMinutes(), 
+        seconds = this.date.getSeconds() < 10 ? '0' + this.date.getSeconds(): this.date.getSeconds(); 
+        switch(this.format) {
+          case "hh":
+           this.displayTime = hours;
+          break;
+          case "mm":
+           this.displayTime = minutes;
+          break;
+          case "ss":
+            this.displayTime = seconds;
+          break;
+          case "hh:mm":
+            this.displayTime = hours + ":" + minutes;
+            break;
+          case "hh:mm:ss":
+            this.displayTime = hours + ":" + minutes + ":" + seconds;
+          break;
+        }
+        return html`<style> .mood { color: green; } </style>
+          Web Components are <span class="mood">${this.displayTime}</span>!
+          <button @click="${this.clickHandler}">Click</button>`;
+      }  
+    }
+
+    customElements.define('my-clock', MyClock);
+  </script>
+
+  
+  
+  <!-- include the Glitch button to show what the webpage is about and
+        to make it easier for folks to view source and remix -->
+  <!-- <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+  <script src="https://button.glitch.me/button.js"></script> -->
+</body>
+</html>
