@@ -44,7 +44,14 @@ class MyClock extends LitElement {
         this.displayTime = hours + ":" + minutes + ":" + seconds;
       break;
     }
-    return html`<style>:host { color: var(--myColor, red); } </style>
+    return html`<style>
+    span {
+      font-size: var(--myFontSize, 36px);
+      background-color: var(--myBackground, white);
+      margin: var(--myMargin, 30px);
+      padding: var(--myPadding, 30px); 
+      color: var(--myColor, red); 
+    } </style>
       <span class="mood">${this.displayTime}</span>`;
   }  
 }
