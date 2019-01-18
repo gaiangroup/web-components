@@ -10,37 +10,19 @@
     <!-- Polyfills only needed for Firefox and Edge. -->
     <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <style>
-    my-clock {
-      --myBackground: rgb(6, 175, 34);
-      --myColor: rgb(156, 67, 152);
-      --myFontSize: 45px;
-      --myMargin: 45px;
-      --myPadding: 45px;
-
-    }
+        my-clock {
+            --myBackground: rgb(141, 195, 202);
+            --myColor: rgb(156, 67, 152);
+            --myFontSize: 45px;
+            --myMargin: 45px;
+            --myPadding: 45px;
+        }
     </style>
 </head>
 
 <body>
     <my-clock format="hh:mm:ss"></my-clock>
-
-    <script type="module" src="./time.js">
-        // import {LitElement, html, customElement, property} from '@polymer/lit-element'; // class MyClock extends LitElement { // static get properties() { // return { // format: {type: String}, // displayTime: {type: String}, // date: {type: Date} // } //
-        } // constructor() { // super(); // this.displayTime = ""; // this.date = new Date(); // this.addEventListener('update-time', (e) => { // this.date = new Date(); // }); // this.tick(); // } // tick() { // setInterval(() => { // let loaded = new
-        CustomEvent('update-time'); // this.dispatchEvent(loaded); // }, 1000); // } // render() { // let hours = this.date.getHours()
-        < 10 ? '0' + this.date.getHours(): this.date.getHours(), // minutes=t his.date.getMinutes() < 10 ? '0' + this.date.getMinutes():
-            this.date.getMinutes(), // seconds=t his.date.getSeconds() < 10 ? '0' + this.date.getSeconds(): this.date.getSeconds(); // switch(this.format) { // case "hh": // this.displayTime=h ours; // break; // case "mm": // this.displayTime=m inutes; //
-            break; // case "ss": // this.displayTime=s econds; // break; // case "hh:mm": // this.displayTime=h ours + ":" + minutes; // break; // case "hh:mm:ss": // this.displayTime=h ours + ":" + minutes + ":" + seconds; // break; // } // return html`<style>
-        .mood { color: green; } </style>
-            // <span class="mood">${this.displayTime}</span>`; // } // } // customElements.define('my-clock', MyClock);
-    </script>
-
-
-
-    <!-- include the Glitch button to show what the webpage is about and
-        to make it easier for folks to view source and remix -->
-    <!-- <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-  <script src="https://button.glitch.me/button.js"></script> -->
+    <script type="module" src="./time.js"></script>
 </body>
 
 </html>
