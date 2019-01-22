@@ -1,4 +1,4 @@
-import {LitElement, html, customElement, property} from '@polymer/lit-element';
+import {LitElement, html} from '@polymer/lit-element';
     
 class MyClock extends LitElement {
   static get properties() {
@@ -52,7 +52,7 @@ class MyClock extends LitElement {
       padding: var(--myPadding, 30px); 
       color: var(--myColor, red); 
     } </style>
-      <span class="mood">${this.displayTime}</span>`;
+      <span>${this.displayTime}</span>`;
   }  
 }
 
