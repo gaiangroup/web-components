@@ -36,11 +36,12 @@ class MyDate extends LitElement {
     }
     return html`<style>
     span {
-      font-size: var(--myFontSize, 36px);
-      background-color: var(--myBackground, white);
+      font-size: var(--myFontSize, 30px);
+      background-color: var(--myBackground, #cecece);
       margin: var(--myMargin, 30px);
       padding: var(--myPadding, 30px); 
-      color: var(--myColor, red); 
+      color: var(--myColor, #000);
+      float: var(--fLeft, left);
     } </style>
       <span>${this.displayDate}</span>`;
   }  
