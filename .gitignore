@@ -1,0 +1,3 @@
+#ignore node_modules directory during git commit
+
+node_modules/
