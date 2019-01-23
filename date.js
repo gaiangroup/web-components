@@ -1,4 +1,4 @@
-import '@webcomponents/webcomponentsjs/webcomponents-loader.js';
+import '@webcomponents/webcomponentsjs/webcomponents-loader.js'; // Polyfills only needed for Firefox and Edge.
 import {LitElement, html} from '@polymer/lit-element';
     
 class MyDate extends LitElement {
@@ -37,11 +37,12 @@ class MyDate extends LitElement {
     }
     return html`<style>
     span {
-      font-size: var(--myFontSize, 36px);
-      background-color: var(--myBackground, white);
+      font-size: var(--myFontSize, 30px);
+      background-color: var(--myBackground, #cecece);
       margin: var(--myMargin, 30px);
       padding: var(--myPadding, 30px); 
-      color: var(--myColor, red); 
+      color: var(--myColor, #000);
+      float: var(--fLeft, left);
     } </style>
       <span>${this.displayDate}</span>`;
   }  
